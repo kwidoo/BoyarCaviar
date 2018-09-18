@@ -36,15 +36,16 @@ class BoyarCaviarServiceProvider extends ServiceProvider
                 __DIR__.'/../publishable/assets' => public_path('/'),
             ], 'boyarcaviar.assets');
             
-            $this->publishes([
-                __DIR__.'/../publishable/fonts' => public_path('/'),
+             $this->publishes([
+                __DIR__.'/../publishable/fonts' => public_path('/fonts'),
             ], 'boyarcaviar.assets');
             $this->publishes([
-                __DIR__.'/../publishable/img' => public_path('/'),
+                __DIR__.'/../publishable/img' => public_path('/img'),
             ], 'boyarcaviar.assets');
             $this->publishes([
-                __DIR__.'/../publishable/svg' => public_path('/'),
+                __DIR__.'/../publishable/svg' => public_path('/svg'),
             ], 'boyarcaviar.assets');
+
             // Publishing auth.
             $this->publishes([
                 __DIR__.'/../publishable/auth' => base_path('resources/views/auth'),

@@ -36,6 +36,9 @@ in config/app.php
         'Html' => Collective\Html\HtmlFacade::class,
         'Menu' => Lavary\Menu\Facade::class,
 
+redirectifauthenticated -> убрать home;
+
+
 ## Change log
 
 Please see the [changelog](changelog.md) for more information on what has changed recently.
