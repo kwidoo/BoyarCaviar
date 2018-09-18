@@ -25,13 +25,13 @@
     "autoload": {
         "psr-4": {
             "Kwidoo\\BoyarCaviar\\": "src/",
-            "Gloudemans\\Shoppingcart\\": "/packages/crinsane/laravelshoppingcart/src/"
+            "Gloudemans\\Shoppingcart\\": "./packages/crinsane/laravelshoppingcart/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
             "Kwidoo\\BoyarCaviar\\Tests\\": "tests",
-            "Gloudemans\\Shoppingcart\\": "/packages/crinsane/laravelshoppingcart/src/"
+            "Gloudemans\\Shoppingcart\\": "./packages/crinsane/laravelshoppingcart/src/"
        }
     }, 
     "extra": {
@@ -59,7 +59,7 @@
     "repositories": [
     {
         "type": "path",
-        "url": "/packages/crinsane/laravelshoppingcart"
+        "url": "./packages/crinsane/laravelshoppingcart"
     }]
     
 }
