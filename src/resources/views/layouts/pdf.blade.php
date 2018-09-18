@@ -8,7 +8,7 @@
 
 </head>
 <body >
-    <img src="{{ $message->embed(public_path('/img/logo.png')) }}" width="100" />
+    <img src="{{ public_path('/img/logo.png')}}" width="100" />
  
             @yield('content')
         

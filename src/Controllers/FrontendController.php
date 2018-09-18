@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 use Cart;
 use Kwidoo\BoyarCaviar\Requests\CheckoutRequest;
 use Auth;
+use PDF;
+use Illuminate\Support\Facades\Mail;
+use Kwidoo\BoyarCaviar\Mail\OrderCreated;
+
 
 class FrontendController extends Controller
 {
@@ -18,6 +22,15 @@ class FrontendController extends Controller
 
 	public function buy(Request $request){
 		Cart::add($request->product_id, $request->name, $request->qty, $request->price, ['size' => $request->size, 'type' => $request->type, 'image' => $request->image]);
+
+		$z = Cart::search(function ($cartItem, $rowId) {
+			return $cartItem->name === 'Flat Rate Shipping';
+		});
+
+		if (count($z) == 0) {
+			Cart::add('127341','Flat Rate Shipping', 1, 50.00, ['size' => '', 'type' => '', 'image' => '']);
+		}
+
 		return Cart::total();
 	}
 
@@ -34,6 +47,10 @@ class FrontendController extends Controller
 		return view('boyarcaviar::partials.cart_list');
 	}
 
+	public function cartState(){
+		return Cart::total();
+	}
+
 	public function empty() {
 		Cart::destroy();
 		return view('boyarcaviar::frontpage.cart');		
@@ -46,7 +63,7 @@ class FrontendController extends Controller
 	public function checkoutSave(Request $request) {
 
 		$user = Auth::user();
-		$address = new \App\Address;
+		$address = new \Kwidoo\BoyarCaviar\Models\Address;
 		if (Auth::check()){
 			$address->user_id = $user->id;
 	    }	
@@ -59,7 +76,7 @@ class FrontendController extends Controller
 		$address->save();
 
 
-		$invoice = new \App\Invoices;
+		$invoice = new \Kwidoo\BoyarCaviar\Models\Invoices;
 		$invoice->address_id = $address->id;
 		$invoice->number = md5(rand(0,100000));
 		
@@ -70,13 +87,15 @@ class FrontendController extends Controller
 		$invoice->cart  =json_encode($result);
 		$invoice->save();
 
+		Cart::store($invoice->number);
 		Cart::destroy();
+		Mail::to([$request->email,'info@boyarcaviar.eu', 'boyarcaviar@gmail.com'])->send(new OrderCreated($invoice));
 		return redirect()->route('invoice',['id' => $invoice->id]);
 	}
 
 	public function invoice(Request $request){
-		$invoice = \App\Invoices::find($request->id);
-		return view('boyarcaviar::frontpage.invoice')->with('invoice', $invoice);
+		$invoice = \Kwidoo\BoyarCaviar\Models\Invoices::find($request->id);
+		return view('boyarcaviar::frontpage.invoice', ['invoice' => $invoice]);
 	}
 
 	public function sturgeon() {
@@ -97,4 +116,11 @@ class FrontendController extends Controller
 	public function beluga() {
 		return view('boyarcaviar::frontpage.beluga');
 	}
+
+	public function downloadPdf(Request $request){
+		$invoice = \Kwidoo\BoyarCaviar\Models\Invoices::find($request->id);
+		$pdf = PDF::loadView('boyarcaviar::pdf.invoice', ['invoice' => $invoice]);
+		return $pdf->stream('invoice.pdf');
+	}
+	
 }

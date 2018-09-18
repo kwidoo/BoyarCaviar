@@ -13,10 +13,9 @@
     "keywords": ["Laravel", "BoyarCaviar"],
     "require": {
         "illuminate/support": "~5",
-        "jrean/laravel-user-verification": "^6.0",
         "laravelcollective/html": "^5.4.0",
-        "lavary/laravel-menu": "^1.7",
-        "gloudemans/shoppingcart": "^2.5"
+        "gloudemans/shoppingcart": "dev-master",
+        "lavary/laravel-menu": "^1.7"
     },
     "require-dev": {
         "phpunit/phpunit": "~6.0",
@@ -25,14 +24,16 @@
     },
     "autoload": {
         "psr-4": {
-            "Kwidoo\\BoyarCaviar\\": "src/"
+            "Kwidoo\\BoyarCaviar\\": "src/",
+            "Gloudemans\\Shoppingcart\\": "/packages/crinsane/laravelshoppingcart/src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Kwidoo\\BoyarCaviar\\Tests\\": "tests"
-        }
-    },
+            "Kwidoo\\BoyarCaviar\\Tests\\": "tests",
+            "Gloudemans\\Shoppingcart\\": "/packages/crinsane/laravelshoppingcart/src/"
+       }
+    }, 
     "extra": {
         "laravel": {
             "providers": [
@@ -54,5 +55,11 @@
             "php artisan vendor:publish --tag=boyarcaviar.assets --force",
             "php artisan migrate"
         ]
-    }
+    },
+    "repositories": [
+    {
+        "type": "path",
+        "url": "/packages/crinsane/laravelshoppingcart"
+    }]
+    
 }

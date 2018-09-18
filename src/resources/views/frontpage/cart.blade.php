@@ -1,6 +1,6 @@
 @extends('boyarcaviar::layouts.frontend')
 
-@section('title', 'Premium Black Caviar')
+@section('title', 'My Cart')
 
 @section('content')
  	<div class="d-flex flex-row bd-glow-more pt-4 pb-4 p-2">

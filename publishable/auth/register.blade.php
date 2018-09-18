@@ -1,5 +1,8 @@
 @extends('boyarcaviar::layouts.frontend')
 
+@section('title', 'Register')
+
+
 @section('content')
    <div class="d-flex flex-row bd-glow-more pt-4 pb-4 p-2">
         <div class="container frame-two">

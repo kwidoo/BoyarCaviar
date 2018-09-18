@@ -33,44 +33,49 @@ Route::group(['middleware' => ['web']], function() {
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@empty', 
 		'as' => 'empty']);
 
-	Route::get('sturgeon',[ 
+	Route::get('/state', [ 
+		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@cartState', 
+		'as' => 'state']);
+
+	Route::get('/sturgeon',[ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@sturgeon', 
 		'as' => 'sturgeon']);
-	Route::get('oscietra-classic',[ 
+	Route::get('/oscietra-classic',[ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@classic', 
 		'as' => 'oscietra.classic']);
-	Route::get('oscietra-royal',[ 
+	Route::get('/oscietra-royal',[ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@royal', 
 		'as' => 'oscietra.royal']);
-	Route::get('sevruga',[ 
+	Route::get('/sevruga',[ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@sevruga', 
 		'as' => 'sevruga']);
-	Route::get('beluga',[ 
+	Route::get('/beluga',[ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@beluga', 
 		'as' => 'beluga']);
 
-	Route::get('invoice',[ 
+	Route::get('/invoice',[ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@invoice', 
 		'as' => 'invoice']);
 
+	Route::get('/download-invoice',[ 
+		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@downloadPDF', 
+		'as' => 'download.pdf']);
 
 
 
-
-
-
-
-	Route::get('email-verification/error', app()->getNamespace().'Http\Controllers\Auth\RegisterController@getVerificationError')
+	Route::get('/email-verification/error', app()->getNamespace().'Http\Controllers\Auth\RegisterController@getVerificationError')
         ->name('email-verification.error');
 
-    Route::get('email-verification/check/{token}', app()->getNamespace().'Http\Controllers\Auth\RegisterController@getVerification')
+    Route::get('/email-verification/check/{token}', app()->getNamespace().'Http\Controllers\Auth\RegisterController@getVerification')
         ->name('email-verification.check');
 
-	Route::group(['middleware' => ['isVerified']], function() {
-		 Route::get('/my-account', [ 
+
+	Route::group(['middleware' => ['verified']], function() {
+		Route::get('/my-account', [ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@index', 
 		'as' => 'my-account']);
-		 Route::get('/my-whishlist', [ 
+
+		Route::get('/my-whishlist', [ 
 		'uses' => 'Kwidoo\BoyarCaviar\Controllers\FrontendController@index', 
 		'as' => 'my-whishlist']);
 	});

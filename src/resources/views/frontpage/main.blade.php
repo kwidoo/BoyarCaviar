@@ -28,7 +28,7 @@
 						    		</p>
 						    		<p class="text-center">
 
-						    		<a href="/buy?product_id=194354&name=Sturgeon&qty=1&price=180&size=100g&type=Caviar" class="btn btn-caviar btn-buy text-uppercase">Add to cart</a>
+						    		<a href="/buy?product_id=194354&name=Sturgeon&qty=1&price=180&size=100g&type=Caviar&image=sutgeon" class="btn btn-caviar btn-buy text-uppercase">Add to cart</a>
 						    		</p>
 						  		</div>
 						  	</div>
@@ -49,7 +49,7 @@
 						    			225.00 €
 						    		</p>
 						    		<p class="text-center">
-						    		<a href="/buy?product_id=184345&name=Oscietra%20Classic&qty=1&price=225&size=100g&type=Caviar" class="btn btn-caviar btn-buy text-uppercase">Add to cart</a>
+						    		<a href="/buy?product_id=184345&name=Oscietra%20Classic&qty=1&price=225&size=100g&type=Caviar&image=oscietra" class="btn btn-caviar btn-buy text-uppercase">Add to cart</a>
 						    		</p>
 						  		</div>
 						  	</div>
@@ -70,7 +70,7 @@
 						    			122.00 €
 						    		</p>
 						    		<p class="text-center">
-						    		<a href="/buy?product_id=164354&name=Sevruga&qty=1&price=122&size=50g&type=Caviar" class="btn btn-caviar btn-buy text-uppercase">Add to cart</a>
+						    		<a href="/buy?product_id=164354&name=Sevruga&qty=1&price=122&size=50g&type=Caviar&image=sevruga" class="btn btn-caviar btn-buy text-uppercase">Add to cart</a>
 						    		</p>
 						  		</div>
 						  	</div>

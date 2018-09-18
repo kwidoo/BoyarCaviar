@@ -60,27 +60,31 @@ jQuery(document).ready(function(){
 		});
 		e.preventDefault();
 	});
-	jQuery('.btn-delete').on('click', function(e){
-		var self = this;
-		jQuery.ajaxSetup({
-			headers: {
-				'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
-			}
-		});
-		jQuery.ajax({
-			type: 'POST',
-			url: '/delete',
-			data: {row_id: jQuery(self).data('row')},
-			success: function(data, textStatus, jqXHR){
-		   		jQuery('#cart-list').html(data);
-			},
-			error: function(jqXHR) {
-			},
-		});
-		e.preventDefault();
-	});
 
-	(function change() {
+	function remove() { 
+		jQuery('.btn-delete').on('click', function(e){
+			var self = this;
+			jQuery.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			jQuery.ajax({
+				type: 'POST',
+				url: '/delete',
+				data: {row_id: jQuery(self).data('row')},
+				success: function(data, textStatus, jqXHR){
+			   		jQuery('#cart-list').html(data);
+			   		remove();
+			   		state();
+				},
+				error: function(jqXHR) {
+				},
+			});
+			e.preventDefault();
+		});
+	}
+	function change() {
 		jQuery('.qty').on('change', function(e){
 			var self = this;
 			jQuery.ajaxSetup({
@@ -94,15 +98,35 @@ jQuery(document).ready(function(){
 				data: {row_id: jQuery(self).data('row'), qty: jQuery(self).val() },
 				success: function(data, textStatus, jqXHR){
 			   		jQuery('#cart-list').html(data);
+			   		remove();
 			   		change();
+			   		state();
 				},
 				error: function(jqXHR) {
 				},
 			});
 			e.preventDefault();
 		});
-	})();
-
+	}	
+	
+	function state() {
+		jQuery.ajaxSetup({
+				headers: {
+					'X-CSRF-TOKEN': jQuery('meta[name="csrf-token"]').attr('content')
+				}
+			});
+			jQuery.ajax({
+				type: 'GET',
+				url: '/state',
+				success: function(data, textStatus, jqXHR){
+			   		jQuery('#cart').html(data);
+				},
+				error: function(jqXHR) {
+				},
+			});		
+	}
+	remove();
+	change();
 
 	
 	jQuery('.btn-empty').on('click', function(e){

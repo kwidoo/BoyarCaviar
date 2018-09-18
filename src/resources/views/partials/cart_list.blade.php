@@ -9,14 +9,23 @@
 				Subtotal:
 			</div>
 			<div class="col-md-2">
-				{{Cart::subtotal()}} €
+				{{ number_format( (Cart::subtotal()-50) ,2) }} €
 			</div>
-		</div>		<div class="d-flex flex-row justify-content-end w-100 text-right">
+		</div>		
+		<div class="d-flex flex-row justify-content-end w-100 text-right">
 			<div class="col-md-2">
 				Taxes:
 			</div>
 			<div class="col-md-2">
 				{{Cart::tax()}} €
+			</div>
+		</div>
+		<div class="d-flex flex-row justify-content-end w-100 text-right">
+			<div class="col-md-2">
+				Shipping:
+			</div>
+			<div class="col-md-2">
+				50.00 €
 			</div>
 		</div>
 		<div class="d-flex flex-row justify-content-end w-100 text-right">

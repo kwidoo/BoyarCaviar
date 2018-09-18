@@ -1,6 +1,6 @@
 @extends('boyarcaviar::layouts.frontend')
 
-@section('title', 'Premium Black Caviar')
+@section('title', 'Checkout')
 
 @section('content')
  	<div class="d-flex flex-row bd-glow-more pt-4 pb-4 p-2">
@@ -8,7 +8,7 @@
 			@include('boyarcaviar::partials.second')	 	
 			<div  class="mt-5 d-flex flex-column w-100 frame-one text-white align-items-center">
 				<div class="col-6 mt-5 mb-5">
-					{!! Form::model(App\Address::class,['route' => 'checkout']) !!}
+					{!! Form::model(\Kwidoo\BoyarCaviar\Models\Address::class,['route' => 'checkout']) !!}
 							<div class="form-group">
 						{!! Form::label('firstname', 'Firstname:') !!}
 						{!! Form::text('firstname', null, ['class' => 'form-control']) !!}
