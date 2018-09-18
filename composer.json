@@ -1,0 +1,58 @@
+{
+    "name": "kwidoo/boyarcaviar",
+    "description": ":Boyar Caviar Bootstrap 4 Template",
+    "license": "license",
+    "authors": [
+        {
+            "name": "Oleg Pashkovsky",
+            "email": "oleg@pashkovsky.me",
+            "homepage": "https://smart2be.com"
+        }
+    ],
+    "homepage": "https://github.com/kwidoo/boyarcaviar",
+    "keywords": ["Laravel", "BoyarCaviar"],
+    "require": {
+        "illuminate/support": "~5",
+        "jrean/laravel-user-verification": "^6.0",
+        "laravelcollective/html": "^5.4.0",
+        "lavary/laravel-menu": "^1.7",
+        "gloudemans/shoppingcart": "^2.5"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~6.0",
+        "orchestra/testbench": "~3.0",
+        "jeroen-g/laravel-packager": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Kwidoo\\BoyarCaviar\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Kwidoo\\BoyarCaviar\\Tests\\": "tests"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Kwidoo\\BoyarCaviar\\BoyarCaviarServiceProvider"
+            ],
+            "aliases": {
+                "BoyarCaviar": "Kwidoo\\BoyarCaviar\\Facades\\BoyarCaviar"
+            }
+        }
+    },
+       "scripts": {
+        "post-install-cmd": [
+            "php artisan make:auth",
+            "php artisan vendor:publish --tag=boyarcaviar.assets --force",
+            "php artisan migrate"
+        ],
+        "post-update-cmd": [
+            "php artisan make:auth",
+            "php artisan vendor:publish --tag=boyarcaviar.assets --force",
+            "php artisan migrate"
+        ]
+    }
+}

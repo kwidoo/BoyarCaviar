@@ -1,0 +1,192 @@
+body {
+	background: url(/img/bg.png); 
+	background-size: cover;
+	background-position: center;
+}
+body a:hover {
+	text-decoration: none;
+}
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+@font-face {
+    font-family: 'goodvibes';
+    src: url(/fonts/GoodVibesCyr.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'typography-times';
+    src: url(/fonts/typography-times.ttf) format('truetype');
+}
+
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~font-awesome/scss/font-awesome';
+
+.navbar-laravel {
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+}
+
+.text-caviar {
+	color: #B3B3B3;
+}
+.text-caviar a:hover {
+	color: #A38851;	
+	text-decoration: none;
+}
+
+.text-vibes {
+	font-family: 'goodvibes';
+}
+
+.text-typography {
+	font-family: 'typography';
+}
+
+.color-gold {
+	color: #A38851;
+}
+
+.color-twilight {
+	color: #B3B3B3;
+}
+
+.bd-glow {
+	box-shadow: inset 0 0 5px 0px rgba(255, 255, 255, 0.7);
+}
+.bd-glow-more {
+	box-shadow: inset 0 0 10px 0px rgba(255, 255, 255, 0.7);
+}
+.bd-glow-3 {
+	box-shadow: inset 0 0 5px 0px rgba(255, 255, 255, 0.3);
+}
+.bd-glow-2 {
+	box-shadow: inset 0 0 5px 0px rgba(255, 255, 255, 0.2);
+}
+
+.bd-top-radius {
+	border-top-left-radius: 3px;
+	border-top-right-radius: 3px;
+}
+.mainmenu li {
+	border-right: 1px solid rgba(255, 255, 255, 0.2);
+	height: 50px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+.mainmenu a {
+	color: #B3B3B3;
+	font-size: 14px;
+	line-height: 14px;
+	font-family: 'Raleway';
+	text-transform: uppercase;
+}
+.mainmenu a:hover {
+	color: #A38851;
+}
+.mainmenu .active {
+	border-bottom: 2px solid #A38851;
+}
+.mainmenu .active a {
+	color: #A38851;	
+}
+.topmenu a {
+	font-size: 14px;
+	line-height: 16px;
+	font-family: 'Raleway';
+}
+.logo a {
+	color: #A38851;	
+	font-family: 'goodvibes';	
+}
+.logo a:hover {
+	text-decoration: none;
+}
+
+.frame-one {
+	border: 2px solid #4D4D4D;
+}
+.frame-two { 
+	background-color: black; 
+}
+.text-vibes {font-size:1rem;} 
+.text-typography {font-size: 0.6rem}
+.text-up {margin-top: -8px}
+
+@media (min-width: 544px) {  
+  .text-vibes {font-size:1.5rem;} 
+  .text-typography {font-size: 0.6rem}
+  .text-up {margin-top: -8px}
+}
+ 
+@media (min-width: 768px) {  
+  .text-vibes {font-size:2rem;} 
+  .text-typography {font-size: 1.1rem}
+  .text-up {margin-top: -15px}
+}
+ 
+@media (min-width: 992px) { 
+  .text-vibes {font-size:2.5rem;} 
+  .text-typography {font-size: 1.4rem}
+  .text-up {margin-top: -20px}
+}
+ 
+@media (min-width: 1200px) {  
+  .text-vibes {font-size:3rem;} 
+  .text-typography {font-size: 1.8rem}
+  .text-up {margin-top: -25px}
+}
+.banner {
+	height: 400px;
+	color:white;
+	background-size: contain; 
+	background-repeat: no-repeat;
+	background-image: url(/img/banner2.jpg);
+	background-position: right;
+}
+
+.promo-background-1 {
+	background-size: cover; 
+	background-image: url(/img/promo1.jpg);
+}
+.promo-background-2 {
+	background-size: cover; 
+	background-image: url(/img/promo2.jpg);
+}
+.promo-background-3 {
+	background-size: cover; 
+	background-image: url(/img/promo3.jpg);
+}
+
+.footer a {
+	color: #B3B3B3;
+}
+.footer a:hover {
+	color: #A38851;
+}
+.btn-caviar {
+	background-color: #A38851;
+	color: black;
+}
+.btn-caviar:hover {
+	color: white;
+}
+.card {
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	border-radius: 0;
+}
+
+.form-control {
+	background-color: #BCBCBC;
+	border-radius: 0;
+}
+.color-gold:hover{
+	color: #A38851;
+}
+.btn-delete:hover, .fa-refresh:hover {
+	cursor: pointer;
+}
