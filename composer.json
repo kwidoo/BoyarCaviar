@@ -14,7 +14,6 @@
     "require": {
         "illuminate/support": "~5",
         "laravelcollective/html": "^5.4.0",
-        "gloudemans/shoppingcart": "dev-master",
         "barryvdh/laravel-dompdf": "^0.8.3",
         "lavary/laravel-menu": "^1.7"
     },
@@ -54,11 +53,6 @@
             "php artisan vendor:publish --tag=boyarcaviar.assets --force",
             "php artisan migrate"
         ]
-    },
-    "repositories": [
-    {
-        "type": "vcs",
-        "url": "https://github.com/kwidoo/LaravelShoppingCart"
-    }]
+    }
     
 }
